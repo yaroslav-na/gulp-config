@@ -15,7 +15,7 @@ export function scss() {
           })
         )
       )
-      .pipe(plugins.replace('"/src/imgs/', '"../imgs/'))
+      .pipe(plugins.replace('"/src/assets/', '"../assets/'))
       .pipe(plugins.sass({ outputStyle: "expanded" }))
       .pipe(plugins.groupCssMediaQueries())
       .pipe(plugins.webpcss({ webpClass: ".webp", noWebpClass: ".no-webp" }))
@@ -25,9 +25,9 @@ export function scss() {
           overrideBrowserslist: ["last 3 versions"],
         })
       )
-      // comment out to not build expanded style.css
+      // comment out the line bellow to prevent building expanded style.css
       .pipe(gulp.dest(path.build.scss))
-      .pipe(plugins.cleanCss({}))
+      .pipe(plugins.cleanCss())
       .pipe(plugins.rename({ extname: ".min.css" }))
       .pipe(gulp.dest(path.build.scss))
       .pipe(plugins.browserSync.stream())

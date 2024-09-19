@@ -1,3 +1,3 @@
-import { isWebpSupported } from "./modules/functions.js";
+import { isWebpSupported } from "./__plagin-helper/index.js";
 
 isWebpSupported();

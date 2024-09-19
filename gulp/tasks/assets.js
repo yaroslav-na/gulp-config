@@ -1,5 +1,4 @@
 import gulp from "gulp";
-import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
 
 import { path } from "../config/path.js";
 import { plugins } from "../config/plugins.js";
@@ -10,38 +9,31 @@ function convertToWebp() {
     .pipe(
       plugins.plumber(
         plugins.notify.onError({
-          title: "IMGS",
+          title: "ASSETS | IMGS",
           message: "Error: <%= error.message %>",
         })
       )
     )
-    .pipe(plugins.newer({ dest: path.build.imgs, ext: ".webp" }))
+    .pipe(plugins.newer({ dest: path.build.assets, ext: ".webp" }))
     .pipe(plugins.webp())
-    .pipe(gulp.dest(path.build.imgs))
+    .pipe(gulp.dest(path.build.assets))
     .pipe(plugins.browserSync.stream());
 }
 
-function copyOriginals() {
+function copyFiles() {
   return gulp
-    .src(path.src.imgs, { encoding: false })
+    .src(path.src.assets, { encoding: false })
     .pipe(
       plugins.plumber(
         plugins.notify.onError({
-          title: "IMGS",
+          title: "ASSETS",
           message: "Error: <%= error.message %>",
         })
       )
     )
-    .pipe(plugins.newer(path.build.imgs))
-    .pipe(gulp.dest(path.build.imgs))
+    .pipe(plugins.newer(path.build.assets))
+    .pipe(gulp.dest(path.build.assets))
     .pipe(plugins.browserSync.stream());
 }
 
-function copySvg() {
-  return gulp
-    .src(path.src.svg)
-    .pipe(gulp.dest(path.build.imgs))
-    .pipe(plugins.browserSync.stream());
-}
-
-export const imgs = gulp.series(copyOriginals, copySvg, convertToWebp);
+export const assets = gulp.series(copyFiles, convertToWebp);

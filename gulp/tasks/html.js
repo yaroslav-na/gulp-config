@@ -15,7 +15,7 @@ export function html() {
       )
     )
     .pipe(plugins.fileInclude())
-    .pipe(plugins.replace('"/src/imgs/', '"imgs/'))
+    .pipe(plugins.replace('"/src/assets/', '"assets/'))
     .pipe(plugins.webHtmlNoSvg())
     .pipe(
       plugins.versionNumber({
