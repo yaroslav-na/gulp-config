@@ -1,0 +1,25 @@
+body {
+  background: pink;
+}
+
+.no-webp body header {
+  background: url(/src/imgs/artworks-3Atahq7TyjHBcb3V-pbvbyw-t500x500.jpg);
+}
+
+body header {
+  color: rgb(104, 183, 8);
+}
+
+@media (min-width: 500px) {
+  body {
+    border: 1px solid red;
+  }
+
+  body header {
+    border: 3px solid green;
+  }
+}
+
+.webp body header {
+  background: url(/src/imgs/artworks-3Atahq7TyjHBcb3V-pbvbyw-t500x500.webp);
+}

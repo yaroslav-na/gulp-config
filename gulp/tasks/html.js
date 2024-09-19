@@ -3,8 +3,6 @@ import gulp from "gulp";
 import { path } from "../config/path.js";
 import { plugins } from "../config/plugins.js";
 
-const srcImgsPath = '"/src/imgs/';
-
 export function html() {
   return gulp
     .src(path.src.html)
@@ -17,7 +15,7 @@ export function html() {
       )
     )
     .pipe(plugins.fileInclude())
-    .pipe(plugins.replace(srcImgsPath, '"imgs/'))
+    .pipe(plugins.replace('"/src/imgs/', '"imgs/'))
     .pipe(plugins.webHtmlNoSvg())
     .pipe(
       plugins.versionNumber({
