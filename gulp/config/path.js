@@ -1,4 +1,3 @@
-import { src } from "gulp";
 import { basename, resolve } from "path";
 const rootFolder = basename(resolve());
 
@@ -11,9 +10,12 @@ export const path = {
     scss: `${buildFolder}/css/`,
     html: `${buildFolder}/`,
     files: `${buildFolder}/files`,
+    imgs: `${buildFolder}/imgs/`,
   },
   src: {
     js: `${srcFolder}/js/app.js`,
+    imgs: `${srcFolder}/imgs/**/*.{jpg,jpeg,png,gif,webp}`,
+    svg: `${srcFolder}/imgs/**/*.svg`,
     scss: `${srcFolder}/scss/style.scss`,
     html: `${srcFolder}/*.html`,
     files: `${srcFolder}/files/**/*.*`,
@@ -21,6 +23,7 @@ export const path = {
   watch: {
     js: `${srcFolder}/js/**/*.js`,
     scss: `${srcFolder}/scss/**/*.scss`,
+    imgs: `${srcFolder}/imgs/**/*.{jpg,jpeg,png,gif,webp,svg,ico}`,
     html: `${srcFolder}/**/*.html`,
     files: `${srcFolder}/files/**/*.*`,
   },

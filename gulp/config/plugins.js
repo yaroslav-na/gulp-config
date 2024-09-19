@@ -12,6 +12,8 @@ import cleanCss from "gulp-clean-css";
 import webpcss from "gulp-webpcss";
 import autoprefixer from "gulp-autoprefixer";
 import groupCssMediaQueries from "gulp-group-css-media-queries";
+import newer from "gulp-newer";
+import webp from "gulp-webp";
 
 const sass = gulpSass(dartSass);
 
@@ -29,4 +31,6 @@ export const plugins = {
   webpcss,
   autoprefixer,
   groupCssMediaQueries,
+  newer,
+  webp,
 };
