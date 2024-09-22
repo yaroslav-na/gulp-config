@@ -1,7 +1,7 @@
-import gulp from "gulp";
+import gulp from 'gulp';
 
-import { path } from "../config/path.js";
-import { plugins } from "../config/plugins.js";
+import { path } from '../config/path.js';
+import { plugins } from '../config/plugins.js';
 
 function convertToWebp() {
   return gulp
@@ -9,12 +9,12 @@ function convertToWebp() {
     .pipe(
       plugins.plumber(
         plugins.notify.onError({
-          title: "ASSETS | IMGS",
-          message: "Error: <%= error.message %>",
+          title: 'ASSETS | IMGS',
+          message: 'Error: <%= error.message %>',
         })
       )
     )
-    .pipe(plugins.newer({ dest: path.build.assets, ext: ".webp" }))
+    .pipe(plugins.newer({ dest: path.build.assets, ext: '.webp' }))
     .pipe(plugins.webp())
     .pipe(gulp.dest(path.build.assets))
     .pipe(plugins.browserSync.stream());
@@ -26,8 +26,8 @@ function copyFiles() {
     .pipe(
       plugins.plumber(
         plugins.notify.onError({
-          title: "ASSETS",
-          message: "Error: <%= error.message %>",
+          title: 'ASSETS',
+          message: 'Error: <%= error.message %>',
         })
       )
     )

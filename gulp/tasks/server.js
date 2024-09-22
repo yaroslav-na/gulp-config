@@ -1,5 +1,5 @@
-import { path } from "../config/path.js";
-import { plugins } from "../config/plugins.js";
+import { path } from '../config/path.js';
+import { plugins } from '../config/plugins.js';
 
 export function server() {
   return plugins.browserSync.init({

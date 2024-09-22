@@ -1,8 +1,8 @@
-import { basename, resolve } from "path";
+import { basename, resolve } from 'path';
 const rootFolder = basename(resolve());
 
-const buildFolder = "dist";
-const srcFolder = "src";
+const buildFolder = 'dist';
+const srcFolder = 'src';
 
 export const path = {
   build: {

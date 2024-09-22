@@ -6,15 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp dev",
-    "build": "gulp"
+    "build": "gulp",
+    "styles": "stylelint --fix \"./src/scss/**/*.scss\"",
+    "format": "prettier --write ./src/",
+    "lint": "eslint --fix ./src/",
+    "prepare": "husky",
+    "check-compatibility": "eslint-config-prettier gulpfile.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.11.0",
     "browser-sync": "^3.0.2",
     "del": "^7.1.0",
+    "eslint": "^9.11.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.9.0",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -31,11 +40,20 @@
     "gulp-webp": "^5.0.0",
     "gulp-webp-html-nosvg": "^1.1.1",
     "gulp-webpcss": "^1.1.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "3.3.3",
     "sass": "^1.79.1",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "webp-converter": "^2.2.3",
     "webpack": "^5.94.0",
     "webpack-stream": "^7.0.0"
   },
-  "dependencies": {
-    "webp-converter": "^2.2.3"
+  "lint-staged": {
+    "src/**/*.*": "prettier --write",
+    "src/js/**/*.js": "eslint --fix",
+    "src/scss/**/*.scss": "stylelint --fix"
   }
 }
