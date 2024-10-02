@@ -52,7 +52,7 @@
     "webpack-stream": "^7.0.0"
   },
   "lint-staged": {
-    "src/**/*.*": "prettier --write",
+    "src/**/*.{html,scss,js}": "prettier --write",
     "src/js/**/*.js": "eslint --fix",
     "src/scss/**/*.scss": "stylelint --fix"
   }
